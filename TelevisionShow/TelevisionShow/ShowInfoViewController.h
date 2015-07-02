@@ -19,4 +19,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *txtSummary;
 @property (nonatomic, strong) NSDictionary *dictShowInfo;
 
+
+
+
 @end

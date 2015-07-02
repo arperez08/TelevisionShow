@@ -17,7 +17,7 @@
 @end
 
 @implementation MainViewController
-
+@synthesize segmentedControl;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,7 +25,7 @@
     // Do any additional setup after loading the view from its nib.
     self.title =@"My Movies";
     
-    [self getTVShows];
+    [self getTVShows:0];
     
     if (_refreshHeaderView == nil) {
         EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tblShows.bounds.size.height, self.view.frame.size.width, self.tblShows.bounds.size.height)];
@@ -35,8 +35,9 @@
     }
 }
 
--(void) getTVShows{
-    NSString *strURL = @"http://www.whatsbeef.net/wabz/guide.php?start=1";
+-(void) getTVShows: (int) intPage{
+    NSString *strURL = [NSString stringWithFormat:@"http://www.whatsbeef.net/wabz/guide.php?start=%d",intPage];
+    NSLog(@"%@",strURL);
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString: strURL]];
     [request setRequestMethod:@"GET"];
     [request addRequestHeader:@"Accept" value:@"application/json"];
@@ -45,10 +46,10 @@
     
     NSData *urlData = [request responseData];
     NSError *error = [request error];
-    NSLog(@"error: %@",error);
+    //NSLog(@"error: %@",error);
     if (!error) {
-        NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
-        NSLog(@"responseData UserInfo: %@",responseData);
+        //NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+        //NSLog(@"responseData UserInfo: %@",responseData);
         
         NSMutableDictionary *dictData = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:nil];
         
@@ -127,7 +128,7 @@
 
 - (void)reloadTableViewDataSource{
     //  should be calling your tableviews data source model to reload
-    [self getTVShows];
+    [self getTVShows:intActivePage];
     _reloading = YES;
 }
 
@@ -181,4 +182,27 @@
     _refreshHeaderView = nil;
 }
 
+- (IBAction)btnPage0:(id)sender {
+    [self getTVShows:0];
+    
+}
+
+- (IBAction)btnPage1:(id)sender {
+    [self getTVShows:1];
+}
+- (IBAction)btnPage2:(id)sender {
+    [self getTVShows:2];
+}
+
+- (IBAction)segmentPage:(id)sender {
+    if (segmentedControl.selectedSegmentIndex == 0) {
+        [self getTVShows:0];
+    }
+    if (segmentedControl.selectedSegmentIndex == 1) {
+        [self getTVShows:1];
+    }
+    if (segmentedControl.selectedSegmentIndex == 2) {
+        [self getTVShows:2];
+    }
+}
 @end

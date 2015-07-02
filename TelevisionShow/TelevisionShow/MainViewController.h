@@ -14,8 +14,15 @@
     EGORefreshTableHeaderView *_refreshHeaderView;
     BOOL _reloading;
     NSMutableArray *arrayResult;
+    int intActivePage;
+    IBOutlet UISegmentedControl *segmentedControl;
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tblShows;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
+- (IBAction)btnPage0:(id)sender;
+- (IBAction)btnPage1:(id)sender;
+- (IBAction)btnPage2:(id)sender;
+- (IBAction)segmentPage:(id)sender;
 
 @end

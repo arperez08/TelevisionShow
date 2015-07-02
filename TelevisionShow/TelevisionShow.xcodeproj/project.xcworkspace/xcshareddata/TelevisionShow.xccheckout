@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>CC09C409-49B0-41AC-AA91-C5CFEB6AF574</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>TelevisionShow</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>EBE477F80A126F2DCEEAD0F7762210236838EC9F</key>
 		<string>https://github.com/arperez08/TelevisionShow.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>TelevisionShow/TelevisionShow.xcodeproj/project.xcworkspace</string>
+	<string>TelevisionShow/TelevisionShow.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EBE477F80A126F2DCEEAD0F7762210236838EC9F</key>
