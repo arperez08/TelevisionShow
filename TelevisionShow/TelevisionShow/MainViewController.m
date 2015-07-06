@@ -11,37 +11,41 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "ShowInfoViewController.h"
+#import "SVPullToRefresh.h"
 
 @interface MainViewController ()
 
 @end
 
 @implementation MainViewController
-@synthesize segmentedControl;
+@synthesize dataSource, tblShows;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    intActivePage = 0;
+    
     // Do any additional setup after loading the view from its nib.
     self.title =@"My Movies";
     
-    [self getTVShows:0];
+    [self getTVShows:intActivePage];
     
-    if (_refreshHeaderView == nil) {
-        EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tblShows.bounds.size.height, self.view.frame.size.width, self.tblShows.bounds.size.height)];
-        view.delegate = self;
-        [self.tblShows addSubview:view];
-        _refreshHeaderView = view;
-    }
+     //__weak MainViewController *weakSelf = self;
+    
+    // setup infinite scrolling
+    [self.tblShows addInfiniteScrollingWithActionHandler:^{
+        [self insertRowAtBottom:intActivePage];
+    }];
 }
 
--(void) getTVShows: (int) intPage{
+- (void)insertRowAtBottom: (int) intPage {
     NSString *strURL = [NSString stringWithFormat:@"http://www.whatsbeef.net/wabz/guide.php?start=%d",intPage];
     NSLog(@"%@",strURL);
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString: strURL]];
     [request setRequestMethod:@"GET"];
-    [request addRequestHeader:@"Accept" value:@"application/json"];
+    [request addRequestHeader:@"Accept" value:@"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
+    [request addRequestHeader:@"User-Agent" value:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0"];
     [request startSynchronous];
     
     NSData *urlData = [request responseData];
@@ -53,11 +57,54 @@
         
         NSMutableDictionary *dictData = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:nil];
         
-        arrayResult = [[NSMutableArray alloc]init];
-        arrayResult =[dictData objectForKey:@"results"];
-        NSLog(@"dictData: %@", [dictData objectForKey:@"count"]);
+        NSMutableArray * arrayDataResult = [[NSMutableArray alloc]init];
+        arrayDataResult = [dictData objectForKey:@"results"];
+        for (int i=0; i < [arrayDataResult count]; i++) {
+            [arrayResult addObject:[arrayDataResult objectAtIndex:i]];
+        }
+        arrayCount = [[dictData objectForKey:@"count"]intValue];
     }
+    //NSLog(@"arrayResult: %@",arrayResult);
+    [tblShows.infiniteScrollingView stopAnimating];
     [self.tblShows reloadData];
+    
+    intActivePage = intActivePage + 1;
+}
+
+-(void) getTVShows: (int) intPage{
+    NSString *strURL = [NSString stringWithFormat:@"http://www.whatsbeef.net/wabz/guide.php?start=%d",intPage];
+    NSLog(@"%@",strURL);
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString: strURL]];
+    [request setRequestMethod:@"GET"];
+    [request addRequestHeader:@"Accept" value:@"text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+    [request addRequestHeader:@"User-Agent" value:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0"];
+    [request startSynchronous];
+    
+    NSData *urlData = [request responseData];
+    NSError *error = [request error];
+    //NSLog(@"error: %@",error);
+    if (!error) {
+        //NSString *responseData = [[NSString alloc]initWithData:urlData encoding:NSUTF8StringEncoding];
+        //NSLog(@"responseData UserInfo: %@",responseData);
+        
+        NSMutableDictionary *dictData = [NSJSONSerialization JSONObjectWithData:urlData options:NSJSONReadingMutableContainers error:nil];
+        
+        NSMutableArray * arrayDataResult = [[NSMutableArray alloc]init];
+        arrayDataResult = [dictData objectForKey:@"results"];
+        
+        arrayResult = [[NSMutableArray alloc]init];
+        //arrayResult =[dictData objectForKey:@"results"];
+        for (int i=0; i < [arrayDataResult count]; i++) {
+            [arrayResult addObject:[arrayDataResult objectAtIndex:i]];
+        }
+        //NSLog(@"dictData: %@", [dictData objectForKey:@"count"]);
+        arrayCount = [[dictData objectForKey:@"count"]intValue];
+    }
+    NSLog(@"arrayResult: %@",arrayResult);
+    [self.tblShows reloadData];
+    
+    intActivePage = intActivePage + 1;
 }
 
 
@@ -70,11 +117,6 @@
  // Pass the selected object to the new view controller.
  }
  */
-
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
-{
-    return nil;
-}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -100,16 +142,16 @@
     NSString *strEndTime = [NSString stringWithFormat:@"%@",[jsonData objectForKey:@"end_time"]];
     NSString *strChannel = [NSString stringWithFormat:@"%@",[jsonData objectForKey:@"channel"]];
     NSString *strRating = [NSString stringWithFormat:@"%@",[jsonData objectForKey:@"rating"]];
-
+    
     NSString *strRatingImage = [NSString stringWithFormat:@"%@.png",strRating];
     cell.imgRatings.image = [UIImage imageNamed:strRatingImage];
-
+    
     NSString *strChannelImage = [NSString stringWithFormat:@"%@.png",strChannel];
     cell.imgLogo.image = [UIImage imageNamed:strChannelImage];
-
+    
     cell.lblTitle.text = strName;
     cell.lblTime.text = [NSString stringWithFormat:@"%@-%@",strStartTime,strEndTime];
-
+    
     return cell;
 }
 
@@ -124,49 +166,6 @@
 
 
 #pragma mark -
-#pragma mark Data Source Loading / Reloading Methods
-
-- (void)reloadTableViewDataSource{
-    //  should be calling your tableviews data source model to reload
-    [self getTVShows:intActivePage];
-    _reloading = YES;
-}
-
-- (void)doneLoadingTableViewData{
-    //  model should call this when its done loading
-    _reloading = NO;
-    [_refreshHeaderView egoRefreshScrollViewDataSourceDidFinishedLoading:self.tblShows];
-}
-
-
-#pragma mark -
-#pragma mark UIScrollViewDelegate Methods
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    [_refreshHeaderView egoRefreshScrollViewDidScroll:scrollView];
-    
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    [_refreshHeaderView egoRefreshScrollViewDidEndDragging:scrollView];
-}
-
-#pragma mark -
-#pragma mark EGORefreshTableHeaderDelegate Methods
-
-- (void)egoRefreshTableHeaderDidTriggerRefresh:(EGORefreshTableHeaderView*)view{
-    [self reloadTableViewDataSource];
-    [self performSelector:@selector(doneLoadingTableViewData) withObject:nil afterDelay:3.0];
-}
-
-- (BOOL)egoRefreshTableHeaderDataSourceIsLoading:(EGORefreshTableHeaderView*)view{
-    return _reloading; // should return if data source model is reloading
-}
-
-- (NSDate*)egoRefreshTableHeaderDataSourceLastUpdated:(EGORefreshTableHeaderView*)view{
-    return [NSDate date]; // should return date data source was last changed
-}
-
-#pragma mark -
 #pragma mark Memory Management
 
 - (void)didReceiveMemoryWarning {
@@ -174,35 +173,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewDidUnload {
-    _refreshHeaderView=nil;
-}
-
-- (void)dealloc {
-    _refreshHeaderView = nil;
-}
-
-- (IBAction)btnPage0:(id)sender {
-    [self getTVShows:0];
-    
-}
-
-- (IBAction)btnPage1:(id)sender {
-    [self getTVShows:1];
-}
-- (IBAction)btnPage2:(id)sender {
-    [self getTVShows:2];
-}
-
-- (IBAction)segmentPage:(id)sender {
-    if (segmentedControl.selectedSegmentIndex == 0) {
-        [self getTVShows:0];
-    }
-    if (segmentedControl.selectedSegmentIndex == 1) {
-        [self getTVShows:1];
-    }
-    if (segmentedControl.selectedSegmentIndex == 2) {
-        [self getTVShows:2];
-    }
-}
 @end

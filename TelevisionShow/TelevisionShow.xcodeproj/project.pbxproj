@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1421B2AE1B454F4F002ACF2E /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1421B2AB1B454F4F002ACF2E /* UIScrollView+SVInfiniteScrolling.m */; };
+		1421B2AF1B454F4F002ACF2E /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 1421B2AD1B454F4F002ACF2E /* UIScrollView+SVPullToRefresh.m */; };
 		14975C801B450CDA00A9284B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14975C7F1B450CDA00A9284B /* main.m */; };
 		14975C831B450CDA00A9284B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14975C821B450CDA00A9284B /* AppDelegate.m */; };
 		14975C8B1B450CDA00A9284B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14975C8A1B450CDA00A9284B /* Images.xcassets */; };
@@ -41,15 +43,6 @@
 		14975CF01B450FAF00A9284B /* PG.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975CEA1B450FAF00A9284B /* PG.png */; };
 		14975D0B1B45111E00A9284B /* HomeViewItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14975D091B45111E00A9284B /* HomeViewItemCell.m */; };
 		14975D0C1B45111E00A9284B /* HomeViewItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14975D0A1B45111E00A9284B /* HomeViewItemCell.xib */; };
-		14975D1A1B4511E100A9284B /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975D121B4511E100A9284B /* blackArrow.png */; };
-		14975D1B1B4511E100A9284B /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975D131B4511E100A9284B /* blackArrow@2x.png */; };
-		14975D1C1B4511E100A9284B /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975D141B4511E100A9284B /* blueArrow.png */; };
-		14975D1D1B4511E100A9284B /* blueArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975D151B4511E100A9284B /* blueArrow@2x.png */; };
-		14975D1E1B4511E100A9284B /* grayArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975D161B4511E100A9284B /* grayArrow.png */; };
-		14975D1F1B4511E100A9284B /* grayArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975D171B4511E100A9284B /* grayArrow@2x.png */; };
-		14975D201B4511E100A9284B /* whiteArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975D181B4511E100A9284B /* whiteArrow.png */; };
-		14975D211B4511E100A9284B /* whiteArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975D191B4511E100A9284B /* whiteArrow@2x.png */; };
-		14975D251B4511EF00A9284B /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14975D241B4511EF00A9284B /* EGORefreshTableHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		14975D2A1B451C6B00A9284B /* ShowInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14975D281B451C6B00A9284B /* ShowInfoViewController.m */; };
 		14975D2B1B451C6B00A9284B /* ShowInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14975D291B451C6B00A9284B /* ShowInfoViewController.xib */; };
 		14975D2F1B45221700A9284B /* Hannibal.png in Resources */ = {isa = PBXBuildFile; fileRef = 14975D2E1B45221700A9284B /* Hannibal.png */; };
@@ -66,6 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1421B2A91B454F4F002ACF2E /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVPullToRefresh.h; path = SVPullToRefresh/SVPullToRefresh.h; sourceTree = "<group>"; };
+		1421B2AA1B454F4F002ACF2E /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVInfiniteScrolling.h"; path = "SVPullToRefresh/UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
+		1421B2AB1B454F4F002ACF2E /* UIScrollView+SVInfiniteScrolling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVInfiniteScrolling.m"; path = "SVPullToRefresh/UIScrollView+SVInfiniteScrolling.m"; sourceTree = "<group>"; };
+		1421B2AC1B454F4F002ACF2E /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+SVPullToRefresh.h"; path = "SVPullToRefresh/UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		1421B2AD1B454F4F002ACF2E /* UIScrollView+SVPullToRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+SVPullToRefresh.m"; path = "SVPullToRefresh/UIScrollView+SVPullToRefresh.m"; sourceTree = "<group>"; };
 		14975C7A1B450CDA00A9284B /* TelevisionShow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TelevisionShow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14975C7E1B450CDA00A9284B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14975C7F1B450CDA00A9284B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -120,16 +118,6 @@
 		14975D081B45111E00A9284B /* HomeViewItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewItemCell.h; sourceTree = "<group>"; };
 		14975D091B45111E00A9284B /* HomeViewItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewItemCell.m; sourceTree = "<group>"; };
 		14975D0A1B45111E00A9284B /* HomeViewItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewItemCell.xib; sourceTree = "<group>"; };
-		14975D121B4511E100A9284B /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackArrow.png; path = ThridParty/EGOTableViewPullRefresh/Resources/blackArrow.png; sourceTree = "<group>"; };
-		14975D131B4511E100A9284B /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blackArrow@2x.png"; path = "ThridParty/EGOTableViewPullRefresh/Resources/blackArrow@2x.png"; sourceTree = "<group>"; };
-		14975D141B4511E100A9284B /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blueArrow.png; path = ThridParty/EGOTableViewPullRefresh/Resources/blueArrow.png; sourceTree = "<group>"; };
-		14975D151B4511E100A9284B /* blueArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "blueArrow@2x.png"; path = "ThridParty/EGOTableViewPullRefresh/Resources/blueArrow@2x.png"; sourceTree = "<group>"; };
-		14975D161B4511E100A9284B /* grayArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = grayArrow.png; path = ThridParty/EGOTableViewPullRefresh/Resources/grayArrow.png; sourceTree = "<group>"; };
-		14975D171B4511E100A9284B /* grayArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "grayArrow@2x.png"; path = "ThridParty/EGOTableViewPullRefresh/Resources/grayArrow@2x.png"; sourceTree = "<group>"; };
-		14975D181B4511E100A9284B /* whiteArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteArrow.png; path = ThridParty/EGOTableViewPullRefresh/Resources/whiteArrow.png; sourceTree = "<group>"; };
-		14975D191B4511E100A9284B /* whiteArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "whiteArrow@2x.png"; path = "ThridParty/EGOTableViewPullRefresh/Resources/whiteArrow@2x.png"; sourceTree = "<group>"; };
-		14975D231B4511EF00A9284B /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGORefreshTableHeaderView.h; path = ThridParty/EGOTableViewPullRefresh/Classes/View/EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
-		14975D241B4511EF00A9284B /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGORefreshTableHeaderView.m; path = ThridParty/EGOTableViewPullRefresh/Classes/View/EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
 		14975D271B451C6B00A9284B /* ShowInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowInfoViewController.h; sourceTree = "<group>"; };
 		14975D281B451C6B00A9284B /* ShowInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowInfoViewController.m; sourceTree = "<group>"; };
 		14975D291B451C6B00A9284B /* ShowInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowInfoViewController.xib; sourceTree = "<group>"; };
@@ -155,6 +143,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1421B2A81B454F42002ACF2E /* SVPullToRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				1421B2A91B454F4F002ACF2E /* SVPullToRefresh.h */,
+				1421B2AA1B454F4F002ACF2E /* UIScrollView+SVInfiniteScrolling.h */,
+				1421B2AB1B454F4F002ACF2E /* UIScrollView+SVInfiniteScrolling.m */,
+				1421B2AC1B454F4F002ACF2E /* UIScrollView+SVPullToRefresh.h */,
+				1421B2AD1B454F4F002ACF2E /* UIScrollView+SVPullToRefresh.m */,
+			);
+			name = SVPullToRefresh;
+			sourceTree = "<group>";
+		};
 		14975C711B450CDA00A9284B = {
 			isa = PBXGroup;
 			children = (
@@ -177,10 +177,10 @@
 		14975C7C1B450CDA00A9284B /* TelevisionShow */ = {
 			isa = PBXGroup;
 			children = (
+				1421B2A81B454F42002ACF2E /* SVPullToRefresh */,
 				14975CA41B450D3900A9284B /* ASIHTTPRequest */,
 				14975CCC1B450F4800A9284B /* Assets */,
 				14975CC61B450E2200A9284B /* Classes */,
-				14975D0F1B4511BB00A9284B /* EGOTableViewPullRefresh */,
 				14975C8A1B450CDA00A9284B /* Images.xcassets */,
 				14975C7D1B450CDA00A9284B /* Supporting Files */,
 			);
@@ -300,47 +300,6 @@
 			name = Stations;
 			sourceTree = "<group>";
 		};
-		14975D0F1B4511BB00A9284B /* EGOTableViewPullRefresh */ = {
-			isa = PBXGroup;
-			children = (
-				14975D111B4511D000A9284B /* Resources */,
-				14975D101B4511C700A9284B /* Classes */,
-			);
-			name = EGOTableViewPullRefresh;
-			sourceTree = "<group>";
-		};
-		14975D101B4511C700A9284B /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				14975D221B4511E400A9284B /* View */,
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
-		14975D111B4511D000A9284B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				14975D121B4511E100A9284B /* blackArrow.png */,
-				14975D131B4511E100A9284B /* blackArrow@2x.png */,
-				14975D141B4511E100A9284B /* blueArrow.png */,
-				14975D151B4511E100A9284B /* blueArrow@2x.png */,
-				14975D161B4511E100A9284B /* grayArrow.png */,
-				14975D171B4511E100A9284B /* grayArrow@2x.png */,
-				14975D181B4511E100A9284B /* whiteArrow.png */,
-				14975D191B4511E100A9284B /* whiteArrow@2x.png */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		14975D221B4511E400A9284B /* View */ = {
-			isa = PBXGroup;
-			children = (
-				14975D231B4511EF00A9284B /* EGORefreshTableHeaderView.h */,
-				14975D241B4511EF00A9284B /* EGORefreshTableHeaderView.m */,
-			);
-			name = View;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -424,15 +383,11 @@
 				14975CEB1B450FAF00A9284B /* AV.png in Resources */,
 				14975CE21B450FA400A9284B /* SBS One.png in Resources */,
 				14975CDB1B450FA400A9284B /* 7 Two.png in Resources */,
-				14975D201B4511E100A9284B /* whiteArrow.png in Resources */,
 				14975CED1B450FAF00A9284B /* M.png in Resources */,
 				14975D0C1B45111E00A9284B /* HomeViewItemCell.xib in Resources */,
 				14975CE31B450FA400A9284B /* Seven.png in Resources */,
-				14975D1E1B4511E100A9284B /* grayArrow.png in Resources */,
 				14975C8B1B450CDA00A9284B /* Images.xcassets in Resources */,
-				14975D1C1B4511E100A9284B /* blueArrow.png in Resources */,
 				14975CDD1B450FA400A9284B /* ABC1.png in Resources */,
-				14975D1B1B4511E100A9284B /* blackArrow@2x.png in Resources */,
 				14975CEE1B450FAF00A9284B /* MA.png in Resources */,
 				14975CEF1B450FAF00A9284B /* NR.png in Resources */,
 				14975CDC1B450FA400A9284B /* 7Mate.png in Resources */,
@@ -441,14 +396,10 @@
 				14975CE01B450FA400A9284B /* One.png in Resources */,
 				14975CEC1B450FAF00A9284B /* G.png in Resources */,
 				14975CDF1B450FA400A9284B /* Nine.png in Resources */,
-				14975D1F1B4511E100A9284B /* grayArrow@2x.png in Resources */,
 				14975CE41B450FA400A9284B /* Ten.png in Resources */,
 				14975CDE1B450FA400A9284B /* Eleven.png in Resources */,
-				14975D1A1B4511E100A9284B /* blackArrow.png in Resources */,
 				14975CF01B450FAF00A9284B /* PG.png in Resources */,
 				14975CCB1B450E5900A9284B /* MainViewController.xib in Resources */,
-				14975D211B4511E100A9284B /* whiteArrow@2x.png in Resources */,
-				14975D1D1B4511E100A9284B /* blueArrow@2x.png in Resources */,
 				14975D2B1B451C6B00A9284B /* ShowInfoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,8 +430,9 @@
 				14975D2A1B451C6B00A9284B /* ShowInfoViewController.m in Sources */,
 				14975CC01B450D4B00A9284B /* ASINetworkQueue.m in Sources */,
 				14975CBB1B450D4B00A9284B /* ASIDataDecompressor.m in Sources */,
+				1421B2AE1B454F4F002ACF2E /* UIScrollView+SVInfiniteScrolling.m in Sources */,
 				14975CC51B450DD600A9284B /* Reachability.m in Sources */,
-				14975D251B4511EF00A9284B /* EGORefreshTableHeaderView.m in Sources */,
+				1421B2AF1B454F4F002ACF2E /* UIScrollView+SVPullToRefresh.m in Sources */,
 				14975CBC1B450D4B00A9284B /* ASIDownloadCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,6 +609,7 @@
 				14975C9F1B450CDA00A9284B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14975CA01B450CDA00A9284B /* Build configuration list for PBXNativeTarget "TelevisionShowTests" */ = {
 			isa = XCConfigurationList;
@@ -665,6 +618,7 @@
 				14975CA21B450CDA00A9284B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

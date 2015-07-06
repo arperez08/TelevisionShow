@@ -7,22 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EGORefreshTableHeaderView.h"
+#import "SVPullToRefresh.h"
 
-@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource,EGORefreshTableHeaderDelegate>
+@interface MainViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    EGORefreshTableHeaderView *_refreshHeaderView;
-    BOOL _reloading;
     NSMutableArray *arrayResult;
+    NSMutableArray *dataSource;
+    int arrayCount;
     int intActivePage;
-    IBOutlet UISegmentedControl *segmentedControl;
+
 }
 
 @property (nonatomic, strong) IBOutlet UITableView *tblShows;
-@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
-- (IBAction)btnPage0:(id)sender;
-- (IBAction)btnPage1:(id)sender;
-- (IBAction)btnPage2:(id)sender;
-- (IBAction)segmentPage:(id)sender;
+@property (nonatomic, strong) NSMutableArray *dataSource;
+
 
 @end
